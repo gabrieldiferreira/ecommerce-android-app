@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding.viewProductList.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.viewProductList.adapter = adapter
-        viewModel.viewState.observe(this) { viewState ->
+        viewModel.viewState.observe(this) {viewState ->
             updateUI(viewState)
         }
         viewModel.loadProductList()
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             is ProductListViewState.Content -> {
                 binding.loadingView.isVisible = false
                 binding.errorView.isVisible = false
+                binding.viewProductList.isVisible = true
                 adapter.setData(viewState.productList)
             }
             ProductListViewState.Error -> {

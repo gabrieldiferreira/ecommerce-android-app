@@ -29,6 +29,7 @@ class ProductCardListAdapter : RecyclerView.Adapter<ProductCardListAdapter.ViewH
 
     fun setData(productList: List<ProductCardViewState>) {
         this.data = productList
+        notifyDataSetChanged()
     }
 
 
