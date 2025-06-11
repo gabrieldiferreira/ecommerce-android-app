@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.renarosantos.ecommerceapp.databinding.ProductCardBinding
 
 class ProductCardListAdapter : RecyclerView.Adapter<ProductCardListAdapter.ViewHolder>() {
@@ -39,6 +41,11 @@ class ProductCardListAdapter : RecyclerView.Adapter<ProductCardListAdapter.ViewH
             bind.viewProductName.text = productCardViewState.title
             bind.viewProductDescription.text = productCardViewState.description
             bind.productPrice.text = productCardViewState.price
+            Glide
+                .with(bind.productImage)
+                .asBitmap()
+                .load(productCardViewState.imageUrl)
+                .into(BitmapImageViewTarget(bind.productImage));
         }
 
     }
