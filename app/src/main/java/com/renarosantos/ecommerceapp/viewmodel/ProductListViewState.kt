@@ -1,4 +1,6 @@
-package com.renarosantos.ecommerceapp
+package com.renarosantos.ecommerceapp.viewmodel
+
+import com.renarosantos.ecommerceapp.data.model.ProductCardViewState
 
 sealed class ProductListViewState {
     //preciso de 3 estados para minha aplicacao

@@ -1,4 +1,4 @@
-package com.renarosantos.ecommerceapp
+package com.renarosantos.ecommerceapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.BitmapImageViewTarget
+import com.renarosantos.ecommerceapp.data.model.ProductCardViewState
+import com.renarosantos.ecommerceapp.R
 import com.renarosantos.ecommerceapp.databinding.ProductCardBinding
 
 class ProductCardListAdapter : RecyclerView.Adapter<ProductCardListAdapter.ViewHolder>() {

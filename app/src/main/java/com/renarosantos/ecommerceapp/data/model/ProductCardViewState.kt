@@ -1,4 +1,4 @@
-package com.renarosantos.ecommerceapp
+package com.renarosantos.ecommerceapp.data.model
 
 data class ProductCardViewState(
     val title: String,

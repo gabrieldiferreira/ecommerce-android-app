@@ -1,9 +1,11 @@
-package com.renarosantos.ecommerceapp
+package com.renarosantos.ecommerceapp.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.renarosantos.ecommerceapp.viewmodel.ProductListViewState
+import com.renarosantos.ecommerceapp.repository.ProductRepository
 import kotlinx.coroutines.launch
 
 class ProductListViewModel : ViewModel() {

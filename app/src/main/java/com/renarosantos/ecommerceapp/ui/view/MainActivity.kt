@@ -1,11 +1,14 @@
-package com.renarosantos.ecommerceapp
+package com.renarosantos.ecommerceapp.ui.view
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.renarosantos.ecommerceapp.viewmodel.ProductListViewState
 import com.renarosantos.ecommerceapp.databinding.ActivityMainBinding
+import com.renarosantos.ecommerceapp.ui.adapter.ProductCardListAdapter
+import com.renarosantos.ecommerceapp.viewmodel.ProductListViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val viewModel: ProductListViewModel  by viewModels()
+    private val viewModel: ProductListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
