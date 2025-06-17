@@ -1,4 +1,4 @@
-package com.renarosantos.ecommerceapp.viewmodel
+package com.renarosantos.ecommerceapp.ui.productlist
 
 import com.renarosantos.ecommerceapp.data.model.ProductCardViewState
 

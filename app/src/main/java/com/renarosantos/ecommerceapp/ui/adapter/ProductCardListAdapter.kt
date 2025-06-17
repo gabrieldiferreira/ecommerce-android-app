@@ -10,7 +10,8 @@ import com.renarosantos.ecommerceapp.data.model.ProductCardViewState
 import com.renarosantos.ecommerceapp.R
 import com.renarosantos.ecommerceapp.databinding.ProductCardBinding
 
-class ProductCardListAdapter : RecyclerView.Adapter<ProductCardListAdapter.ViewHolder>() {
+class ProductCardListAdapter(val onItemClicked: (ProductCardViewState) -> Unit) :
+    RecyclerView.Adapter<ProductCardListAdapter.ViewHolder>() {
 
     private var data: List<ProductCardViewState> = emptyList()
 
@@ -37,18 +38,22 @@ class ProductCardListAdapter : RecyclerView.Adapter<ProductCardListAdapter.ViewH
     }
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(productCardViewState: ProductCardViewState) {
             val bind = ProductCardBinding.bind(itemView)
-            bind.viewProductName.text = productCardViewState.title
-            bind.viewProductDescription.text = productCardViewState.description
-            bind.productPrice.text = productCardViewState.price
-            Glide
-                .with(bind.productImage)
-                .asBitmap()
-                .load(productCardViewState.imageUrl)
-                .into(BitmapImageViewTarget(bind.productImage));
+            itemView.setOnClickListener {
+                onItemClicked(productCardViewState)
+            }
+            bind.apply {
+                bind.viewProductName.text = productCardViewState.title
+                bind.viewProductDescription.text = productCardViewState.description
+                bind.productPrice.text = productCardViewState.price
+                Glide
+                    .with(bind.productImage)
+                    .asBitmap()
+                    .load(productCardViewState.imageUrl)
+                    .into(BitmapImageViewTarget(bind.productImage));
+            }
         }
-
     }
 }

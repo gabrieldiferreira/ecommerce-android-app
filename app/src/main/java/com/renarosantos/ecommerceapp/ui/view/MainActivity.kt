@@ -1,54 +1,13 @@
 package com.renarosantos.ecommerceapp.ui.view
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.renarosantos.ecommerceapp.viewmodel.ProductListViewState
-import com.renarosantos.ecommerceapp.databinding.ActivityMainBinding
-import com.renarosantos.ecommerceapp.ui.adapter.ProductCardListAdapter
-import com.renarosantos.ecommerceapp.viewmodel.ProductListViewModel
+import com.renarosantos.ecommerceapp.R
 
 class MainActivity : AppCompatActivity() {
 
-    private val adapter = ProductCardListAdapter()
-
-    private lateinit var binding: ActivityMainBinding
-
-    private val viewModel: ProductListViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        binding.viewProductList.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.viewProductList.adapter = adapter
-        viewModel.viewState.observe(this) {viewState ->
-            updateUI(viewState)
-        }
-        viewModel.loadProductList()
-    }
-
-    private fun updateUI(viewState: ProductListViewState) {
-        when(viewState) {
-            is ProductListViewState.Content -> {
-                binding.loadingView.isVisible = false
-                binding.errorView.isVisible = false
-                binding.viewProductList.isVisible = true
-                adapter.setData(viewState.productList)
-            }
-            ProductListViewState.Error -> {
-                binding.loadingView.isVisible = false
-                binding.errorView.isVisible = true
-                binding.viewProductList.isVisible = false
-            }
-            ProductListViewState.Loading -> {
-                binding.viewProductList.isVisible = false
-                binding.loadingView.isVisible = true
-                binding.errorView.isVisible = false
-            }
-        }
+        setContentView(R.layout.activity_main)
     }
 }
