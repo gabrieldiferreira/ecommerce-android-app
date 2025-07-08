@@ -34,7 +34,7 @@ class ProductCardListAdapter(val onItemClicked: (ProductCardViewState) -> Unit) 
 
     fun setData(productList: List<ProductCardViewState>) {
         this.data = productList
-        notifyDataSetChanged()
+        //notifyDataSetChanged()
     }
 
 

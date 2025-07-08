@@ -12,10 +12,13 @@ buildscript {
         //navigation component: ProductListFragmentDirections
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.9.0")
 
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
+}
+
+// project-level build.gradle.kts
+plugins {
+    // ... other plugins
+    id("com.google.dagger.hilt.android") version "2.51.1" apply false // Use your Hilt version here
 }
 
 task clean(type: Delete) {

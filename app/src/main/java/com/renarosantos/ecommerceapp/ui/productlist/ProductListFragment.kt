@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.renarosantos.ecommerceapp.data.model.ProductCardViewState
 import com.renarosantos.ecommerceapp.databinding.ProductListFragmentBinding
 import com.renarosantos.ecommerceapp.ui.adapter.ProductCardListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductListFragment : Fragment() {
 
     private lateinit var binding: ProductListFragmentBinding
